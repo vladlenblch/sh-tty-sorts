@@ -1,1 +1,1 @@
-# sh-tty-sorts
+typeshi
