@@ -29,9 +29,7 @@ def one_try(lst):
 
         count += 1
         if lst[min_index] >= lst[max_index]:
-            for_swap = lst[min_index]
-            lst[min_index] = lst[max_index]
-            lst[max_index] = for_swap
+            lst[min_index], lst[max_index] = lst[max_index], lst[min_index]
     return lst
 
 
