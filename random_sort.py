@@ -9,17 +9,11 @@ def generate_list():
     return lst
 
 
-def check_if_sorted(lst):
-    global count
-    for i in range(len(lst) - 1):
-        if lst[i] <= lst[i + 1]:
-            continue
-        else:
-            return False
-    return True
+def check_if_sorted(lst: list):
+    return all(lst[i] <= lst[i + 1] for i in range(len(lst) - 1))
 
 
-def one_try(lst):
+def one_try(lst: list):
     global count
     for i in range(len(lst)):
         index1 = random.randint(0, len(lst) - 1)
@@ -33,7 +27,7 @@ def one_try(lst):
     return lst
 
 
-def random_sort(lst):
+def random_sort(lst: list):
     while True:
         if check_if_sorted(lst):
             return lst
@@ -41,12 +35,11 @@ def random_sort(lst):
             one_try(lst)
 
 
-start = time.perf_counter()
-
 new_list = generate_list()
 count = 0
-print(random_sort(new_list))
 
+start = time.perf_counter()
+print(random_sort(new_list))
 end = time.perf_counter()
 
 print(f"время: {end - start}")

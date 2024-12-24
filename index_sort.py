@@ -14,21 +14,14 @@ def make_new_arr(lst: list):
     for elem in lst:
         new_arr[elem] = elem
         count += 1
-    return new_arr
+    return set(new_arr)
 
-
-def put_away_zero(lst: list):
-    global count
-    count += len(lst)
-    return [elem for elem in make_new_arr(lst) if elem != 0]
-
-
-start = time.perf_counter()
 
 new_list = generate_list_without_repeating_elements()
 count = 0
-print(put_away_zero(make_new_arr(new_list)))
 
+start = time.perf_counter()
+print(make_new_arr(new_list))
 end = time.perf_counter()
 
 print(f"время: {end - start}")
